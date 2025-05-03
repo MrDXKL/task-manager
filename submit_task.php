@@ -1,13 +1,8 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405); 
-    exit('Only POST requests are allowed.');
-}
-
-$host = 'sql112.infinityfree.com';
-$db = 'if0_38134885_dataa';
-$user = 'if0_38134885';
-$pass = '،هممثق_1423';        
+$host = 'localhost';
+$db = 'taskdb';
+$user = 'root';
+$pass = ''; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
