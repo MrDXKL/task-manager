@@ -13,11 +13,18 @@
     <a href="about.html">About</a> |
     <a href="contact.html">Contact</a>
   </nav>
-  <div id="root"></div>
+  <form id="task-form">
+  <input type="text" id="task" placeholder="Enter task..." required />
+  <button type="submit">Add Task</button>
+</form>
+<ul id="task-list"></ul>
+
 
   <!-- React & App Script -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="app.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
