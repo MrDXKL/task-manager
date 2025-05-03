@@ -1,9 +1,13 @@
 <?php
-include 'db.php';
+$host = 'localhost';
+$db = 'task_db';
+$user = 'root';
+$pass = '';
+$conn = new mysqli($host, $user, $pass, $db);
 
-$sql = "SELECT name FROM tasks ORDER BY id DESC";
-$result = $conn->query($sql);
+header('Content-Type: application/json');
 
+$result = $conn->query("SELECT * FROM tasks");
 $tasks = [];
 
 while ($row = $result->fetch_assoc()) {
