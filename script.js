@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: `task=${encodeURIComponent(task)}`,
+            body: `task=${encodeURIComponent(task)}`
         })
         .then(response => {
-            if (!response.ok) throw new Error("Task submit failed");
+            if (!response.ok) throw new Error("Task submission failed");
             return response.text();
         })
         .then(() => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadTasks() {
         fetch("./fetch_tasks.php")
             .then(response => {
-                if (!response.ok) throw new Error("Task fetch failed");
+                if (!response.ok) throw new Error("Failed to fetch tasks");
                 return response.json();
             })
             .then(tasks => {
