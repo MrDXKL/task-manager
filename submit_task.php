@@ -1,28 +1,16 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "task_db";
+$host = 'localhost';
+$db = 'task_db';
+$user = 'root';
+$pass = '';
+$conn = new mysqli($host, $user, $pass, $db);
 
-// Connect
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get data
-$task = $_POST['task'];
-
-if (!empty($task)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $task = $_POST['task'];
     $stmt = $conn->prepare("INSERT INTO tasks (name) VALUES (?)");
     $stmt->bind_param("s", $task);
     $stmt->execute();
-    echo "Task added";
-} else {
-    echo "No task provided";
+    $stmt->close();
 }
-
 $conn->close();
 ?>
