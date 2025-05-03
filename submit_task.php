@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'taskdb';
+$db = 'task_db';
 $user = 'root';
 $pass = ''; 
 
