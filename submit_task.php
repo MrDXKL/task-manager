@@ -1,11 +1,28 @@
 <?php
-include 'db.php';
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "task_db";
 
-$data = json_decode(file_get_contents("php://input"), true);
-$task = $conn->real_escape_string($data["task"]);
+// Connect
+$conn = new mysqli($host, $user, $password, $dbname);
 
-$sql = "INSERT INTO tasks (name) VALUES ('$task')";
-$conn->query($sql);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Get data
+$task = $_POST['task'];
+
+if (!empty($task)) {
+    $stmt = $conn->prepare("INSERT INTO tasks (name) VALUES (?)");
+    $stmt->bind_param("s", $task);
+    $stmt->execute();
+    echo "Task added";
+} else {
+    echo "No task provided";
+}
 
 $conn->close();
 ?>
