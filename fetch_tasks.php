@@ -1,13 +1,15 @@
 <?php
 $host = 'localhost';
-$db = 'task_db';
+$db = 'taskdb';
 $user = 'root';
-$pass = '';
+$pass = ''; 
+
 $conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-header('Content-Type: application/json');
-
-$result = $conn->query("SELECT * FROM tasks");
+$result = $conn->query("SELECT * FROM tasks ORDER BY id DESC");
 $tasks = [];
 
 while ($row = $result->fetch_assoc()) {
