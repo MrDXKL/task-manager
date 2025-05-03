@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Task Manager</h1>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
-  <form id="task-form">
-  <input type="text" id="task" placeholder="Enter task..." required />
-  <button type="submit">Add Task</button>
-</form>
-<ul id="task-list"></ul>
+    <h1>Task Manager</h1>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
 
+    <div>
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <button id="addTaskBtn">Add Task</button>
+    </div>
 
-  <!-- React & App Script -->
-  
-  <script src="script.js"></script>
+    <ul id="taskList"></ul>
 
+    <script src="script.js"></script>
 </body>
 </html>
